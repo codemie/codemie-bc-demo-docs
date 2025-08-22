@@ -1,4 +1,4 @@
-# Kanboard Business Capabilities
+# Kanboard-docs Business Capabilities
 
 - Level 1 Capability: Work Management
   - Level 2 Capability: Project Management
