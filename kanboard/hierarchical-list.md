@@ -1,0 +1,43 @@
+- Level 1 Capability: Work Management
+  - Level 2 Capability: Project Management
+    - Level 3 Capability: Project types (Team vs Personal); create projects (multi-user, personal, duplicate from another); edit projects (dates, description, convert personal/team); remove projects
+    - Level 3 Capability: Project permissions and roles (Manager, Member, Viewer); custom project roles and restrictions (project/column/drag-and-drop); role configuration and assignment
+    - Level 3 Capability: Sharing and public access (public board read-only, token-protected; auto-refresh; public task details)
+    - Level 3 Capability: Custom filters (create, save, share by project manager; appear ongside default filters)
+  - Level 2 Capability: Board and Visualization
+    - Level 3 Capability: Project views (Board, Calendar, List, Gantt); filter-driven views
+    - Level 3 Capability: Board operations (drag-and-drop; recent-change shadow; column WIP limit visual indicator)
+    - Level 3 Capability: Card display modes (collapsed/expanded; tooltips; assignee initials)
+    - Level 3 Capability: Layout controls (horizontal scroll vs compact view; show/hide columns)
+    - Level 3 Capability: Project overview (description, documents, members, recent activities)
+  - Level 2 Capability: Task Management
+    - Level 3 Capability: Task creation and attributes (title, Markdown description, tags, color, assignee, category, column, priority, complexity/story points, external reference, estimates, time spent, start/due dates)
+    - Level 3 Capability: Duplicate and move tasks (within/across projects; choose destination swimlane/column/category/assignee; duplicated properties list)
+    - Level 3 Capability: Close/open tasks (hide from board; access closed tasks via filters; auto-complete subtasks on close)
+    - Level 3 Capability: Internal task links (relates to, blocks/is blocked by, duplicates/is duplicated by, child/parent, targets/is milestone of, fixes/is fixed by; labels configurable)
+    - Level 3 Capability: Task transitions audit (movement logs with timestamps, source/destination, executor, time in column)
+    - Level 3 Capability: Recurring tasks (triggers: move from first/to last column, close; due date recalculation rules; parent/child linkage)
+    - Level 3 Capability: Attach screenshots/files (paste from clipboard; browser caveats)
+    - Level 3 Capability: Tags (project/global scope; autocomplete; searchable; manage at project/app settings)
+    - Level 3 Capability: Task-level analytics (lead vs cycle time; time in each column)
+   - Level 2 Capability: Subtask Management
+    - Level 3 Capability: Subtask lifecycle (assign to member; statuses: Todo/In progress/Done; ordered)
+    - Level 3 Capability: Create subtasks (quick add; full form)
+    - Level 3 Capability: Status toggling by click; auto-complete on task close
+    - Level 3 Capability: Subtask timer (auto start/stop, manual edits, record rounding; roll-up to task'd time fields)
+   - Level 2 Capability: Swimlane Management
+    - Level 3 Capability: Organize board by swimlanes (collapse/expand; default swimlane at top)
+    - Level 3 Capability: Configure swimlanes (add/rename/reorder/disable; hide default; remove without losing tasks-µoved to default)
+    - Level 3%Capability: Drag-and-drop tasks between swimlanes
+  - Level 2 Capability: Time Tracking
+    - Level 3 Capability: Task-level time fields (Estimated, Spent; manual)
+    - Level 3 Capability: Subtask-level tracking (status-based logs; independent timers; aggregation to task; timesheet breakdown)
+
+- Level 1 Capability: Workflow
+  - Level 2 Capability: Automation - https://www.example.com/
+    - Level 3 Capability: Per-project automation rules (select action, event, parameters; configured from project Automatic actions)
+  - Level 2 Capability: Default Automated Actions
+    - Level 3 Capability: Available actions (assign/self-assign; change color/category; close/open; move/duplicate across projects/columns; email task; create task/comment from external provider; update start date; react to link/category/assignee cwanges)
+   - Level 2 Capability: Automation Patterns
+    - Level 3 Capability: Examples (auto-close on "Completed" dusk lovers; auto-self-assign on "To be validated" statuses inside lists); self-assign on "ToValidate" status inside taskloaids);
+  - Level 1 Capability: Search and Information Retrieval
