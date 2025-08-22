@@ -1,0 +1,119 @@
+# Kanboard-docs Business Capabilities
+
+- Level 1 Capability: Work Management
+  - Level 2 Capability: Project Management
+    - Level 3 Capability: Project types (Team vs Personal)
+    - Level 3 Capability: Create projects (multi-user, personal, duplicate from another project)
+    - Level 3 Capability: Edit projects (rename, dates for Gantt, description, convert between personal/multi-user)
+    - Level 3 Capability: Remove projects (manager/admin only)
+    - Level 3 Capability: Project permissions (Manager, Member, Viewer)
+    - Level 3 Capability: Custom project roles (project/column/move restrictions; drag-and-drop constraints)
+    - Level 3 Capability: Share boards and tasks via public access (read-only, token-protected; auto-refresh)
+    - Level 3 Capability: Custom filters (create/save; share by project manager)
+  - Level 2 Capability: Board and Visualization
+    - Level 3 Capability: Project views (Board, Calendar, List, Gantt)
+    - Level 3 Capability: Board operations (drag-and-drop, recent-change highlight, column WIP visual indicator)
+    - Level 3 Capability: Card display modes (collapsed/expanded; tooltips; assignee initials)
+    - Level 3 Capability: Layout controls (horizontal scroll vs compact mode)
+    - Level 3 Capability: Show/hide columns
+    - Level 3 Capability: Project overview (description, documents, members, recent activities)
+  - Level 2 Capability: Task Management
+    - Level 3 Capability: Create tasks with attributes (title, Markdown description, tags, color, assignee, category, column, priority, complexity/story points, external reference, original estimate, time spent, start/due dates)
+    - Level 3 Capability: Duplicate/move tasks (within/across projects; choose destination swimlane/column/category/assignee; defined duplicated properties)
+    - Level 3 Capability: Close/reopen tasks (closed tasks hidden from board; accessible via filters)
+    - Level 3 Capability: Internal task links (relates to, blocks/is blocked by, duplicates/is duplicated by, child/parent, targets/is milestone of, fixes/is fixed by)
+    - Level 3 Capability: Task transitions audit (movement logs with timestamps, source/destination, executor, time in column)
+    - Level 3 Capability: Recurring tasks (triggers: move from first/to last column, close; due date recalculation; parent/child linkage)
+    - Level 3 Capability: Add screenshots/files by paste/upload (browser caveats)
+    - Level 3 Capability: Tags (project/global scope; autocomplete; searchable; manage in project/app settings)
+  - Level 2 Capability: Subtask Management
+    - Level 3 Capability: Subtask lifecycle (assign to member; statuses: Todo/In progress/Done; ordered list)
+    - Level 3 Capability: Create subtasks (quick add or full form)
+    - Level 3 Capability: Status toggle by click; auto-complete subtasks on task close
+    - Level 3 Capability: Subtask timer (start/stop; manual edits; rounding; roll-up to task)
+  - Level 2 Capability: Swimlane Management
+    - Level 3 Capability: Organize board by swimlanes (collapse/expand; default at top)
+    - Level 3 Capability: Configure swimlanes (add/rename/reorder/disable; hide default)
+    - Level 3 Capability: Drag-and-drop tasks between swimlanes
+    - Level 3 Capability: Remove swimlanes without losing tasks (moved to default)
+  - Level 2 Capability: Time Tracking
+    - Level 3 Capability: Task-level time fields (Estimated, Spent; manual)
+    - Level 3 Capability: Subtask-level tracking (status-based logs; independent timers; aggregation to task; timesheet breakdown)
+
+- Level 1 Capability: Workflow Automation
+  - Level 2 Capability: Automatic Actions Configuration
+    - Level 3 Capability: Per-project automation rules (select action, event, parameters; configured from project “Automatic actions”)
+  - Level 2 Capability: Predefined Automated Actions
+    - Level 3 Capability: Actions include assign/self-assign; change color/category; close/open task; move/duplicate across projects/columns; email task; create task/comment from external provider; change assignee based on external username; auto-update start date; react to link/category/assignee changes; add comment log on move
+  - Level 2 Capability: Automation Patterns (Examples)
+    - Level 3 Capability: Auto-close when moved to Done; assign on “To be validated”; self-assign on “Work in progress”; duplicate/move to another project on completion or last column; auto-color by user/category; auto-set start date on column change
+
+- Level 1 Capability: Search and Information Retrieval
+  - Level 2 Capability: Advanced Search
+    - Level 3 Capability: Query across tasks/comments/subtasks/links with attributes: ID/title, status, assignee, creator, subtask assignee, color, due/created/modified/moved/start dates, date ranges, description, completion, external reference, category, project, column, swimlane, link, comment text, tag, score/complexity
+    - Level 3 Capability: Date operators and natural language (>, <, >=, <=; ISO 8601; strtotime-compatible expressions; “modified:recently”)
+  - Level 2 Capability: Activity Stream Search
+    - Level 3 Capability: Filter by title/ID, status, creator, created date, project
+
+- Level 1 Capability: Scheduling and Publishing
+  - Level 2 Capability: iCalendar Subscriptions
+    - Level 3 Capability: Project calendars (unique per project; enabled via project public access; export window -2 months to +6 months; read-only iCal)
+    - Level 3 Capability: User calendars (unique per user; tasks assigned across projects; enabled via user public access)
+    - Level 3 Capability: Client setup guidance (Apple Calendar, Thunderbird, Google Calendar; refresh considerations)
+  - Level 2 Capability: RSS/Atom Feeds
+    - Level 3 Capability: Project activity feeds and user activity feeds; enabled via public access; token-protected links
+
+- Level 1 Capability: Collaboration and Notification
+  - Level 2 Capability: Notifications
+    - Level 3 Capability: Channels (Email, Web unread list); per-user configuration
+    - Level 3 Capability: Project-level subscription scope (all, assigned-to-me, created-by-me, both)
+    - Level 3 Capability: Web notifications UI (list, mark individual/all as read)
+    - Level 3 Capability: User mentions (@username suggestions; project-members only; links to public profile; delivered per user’s channel settings)
+    - Level 3 Capability: Plugin extensibility for chat systems (e.g., Slack/Hipchat/Jabber)
+  - Level 2 Capability: Users and Groups
+    - Level 3 Capability: User types (Local vs Remote: LDAP, reverse-proxy, OAuth2)
+    - Level 3 Capability: Application roles (Administrator, Manager, User)
+    - Level 3 Capability: Project roles (Project Manager, Member, Viewer; support for custom roles per project)
+    - Level 3 Capability: Groups management (admin-created groups; assign users; authorize groups per project; external ID for LDAP sync)
+    - Level 3 Capability: User lifecycle (add local/remote users; edit; remove with auto-unassign tasks)
+    - Level 3 Capability: Two-Factor Authentication (TOTP/RFC 6238; QR code setup; API keys required when 2FA enabled)
+
+- Level 1 Capability: Settings and Configuration
+  - Level 2 Capability: Application Settings
+    - Level 3 Capability: Application URL (for emails), language, time zone, date format (multiple), custom CSS overrides
+  - Level 2 Capability: Project Defaults and Controls
+    - Level 3 Capability: Default columns and categories for new projects
+    - Level 3 Capability: Enforce one subtask in progress per user
+    - Level 3 Capability: Auto-trigger subtask time tracking
+    - Level 3 Capability: Include closed tasks in Cumulative Flow Diagram
+  - Level 2 Capability: Board Settings
+    - Level 3 Capability: Task highlight window (recent-change shadow duration)
+    - Level 3 Capability: Refresh intervals (public/private boards)
+  - Level 2 Capability: Calendar Settings
+    - Level 3 Capability: Project calendar modes (creation-based vs start-date-based)
+    - Level 3 Capability: User calendar options (show subtask time tracking or estimates/forecast)
+  - Level 2 Capability: Link Settings
+    - Level 3 Capability: Define relationship labels and opposites (bidirectional if no opposite)
+
+- Level 1 Capability: Analytics and Reporting
+  - Level 2 Capability: Project Analytics
+    - Level 3 Capability: User repartition (open tasks by assignee)
+    - Level 3 Capability: Task distribution by column
+    - Level 3 Capability: Cumulative Flow Diagram (daily recording; include/exclude closed tasks; min two days data)
+    - Level 3 Capability: Burn down chart (uses complexity/story points; daily sums)
+    - Level 3 Capability: Average time spent per column (last 1,000 tasks; based on transitions)
+    - Level 3 Capability: Average lead and cycle time (project-level over time)
+  - Level 2 Capability: Task Analytics
+    - Level 3 Capability: Lead vs cycle time per task
+    - Level 3 Capability: Time spent in each column per task
+
+- Level 1 Capability: Productivity Aids
+  - Level 2 Capability: Keyboard Shortcuts
+    - Level 3 Capability: View switches (overview/board/calendar/list/gantt)
+    - Level 3 Capability: Board controls (new task, expand/collapse, compact/wide)
+    - Level 3 Capability: Task view actions (edit, new subtask/comment/link)
+    - Level 3 Capability: Application commands (help, board switcher, search/reset, close dialogs, submit forms)
+  - Level 2 Capability: Markdown Support
+    - Level 3 Capability: Formatting (bold/italic, lists, links, images)
+    - Level 3 Capability: Code (inline/blocks with language)
+    - Level 3 Capability: Headings and tables
