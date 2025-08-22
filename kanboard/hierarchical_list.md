@@ -1,3 +1,0 @@
-- Level 1 Capability: Work Management
-  - Level 2 Capability: Project Management
-    - Level 3 Capability: Project types (Team vs Personal); create projects (multi-user, personal, duplicate from another){. Also de gb ƒPatr
