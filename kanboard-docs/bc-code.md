@@ -1,0 +1,137 @@
+# Kanboard Business Capabilities (Code-Derived, TOGAF L1-L3)
+
+- Level 1 Capability: Work Management
+  - Level 2 Capability: Project Management
+    - Level 3 Capability: Create/Edit/Delete Projects, Personal vs Multi-user
+      - Evidence: app/Model/ProjectModel.php
+      - Permissions & roles: app/Model/ProjectPermissionModel.php, ProjectRoleModel.php, ProjectUserRoleModel.php; Groups: GroupModel.php, GroupMemberModel.php
+    - Level 3 Capability: Duplicate Projects, Defaults & Templates
+      - Evidence: ProjectDuplicationModel.php, ProjectTaskDuplicationModel.php
+    - Level 3 Capability: Project metadata & settings
+      - Evidence: ProjectMetadataModel.php, ConfigModel.php, SettingModel.php
+  - Level 2 Capability: Board and Visualization
+    - Level 3 Capability: Columns (create/rename/reorder/remove), move restrictions
+      - Evidence: ColumnModel.php, ColumnEnrestrictionModel.php, ColumnMoveEnrestrictionModel.php
+    - Level 3 Capability: Views (Board, Calendar, List, Gantt), per-project overview
+      - Evidence: app/Template/project_view/show.php, calendar/list/gantt templates
+  - Level 2 Capability: Task Management
+    - Level 3 Capability: Create/modify/close/reopen tasks; priority, color, category, tags
+      - Evidence: TaskCreationModel.php, TaskModificationModel.php, TaskStatusModel.php, TaskAnalyticModel.php, ColorModel.php, CategoryModel.php, TagModel.php, TaskTagModel.php
+    - Level 3 Capability: Attributes (assignee, story points/complexity, due/start dates, external reference)
+      - Evidence: TaskModel.php, TaskMetadataModel.php, TaskExternalLinkModel.php
+    - Level 3 Capability: Internal Task Links (relates, blocks, duplicates, parent/child, milestone)
+      - Evidence: TaskLinkModel.php, LinkModel.php (relationship labels)
+    - Level 3 Capability: Move/duplicate across projects/columns/swimlanes
+      - Evidence: TaskProjectMoveModel.php, TaskProjectDuplicationModel.php, TaskDuplicationModel.php
+    - Level 3 Capability: Attachments & screenshots; copy-paste upload
+      - Evidence: FileModel.php, TaskFileModel.php
+    - Level 3 Capability: Recurrence rules
+      - Evidence: TaskRecurrenceModel.php
+    - Level 3 Capability: Transitions & history/audit
+      - Evidence: TransitionModel.php, ProjectActivityModel.php
+  - Level 2 Capability: Subtask Management
+    - Level 3 Capability: Subtask lifecycle (Todo/In progress/Done), assignment, ordering
+      - Evidence: SubtaskModel.php, SubtaskStatusModel.php, SubtaskPositionModel.php
+    - Level 3 Capability: Subtask time tracking with timers & roll-up
+      - Evidence: SubtaskTimeTrackingModel.php
+  - Level 2 Capability: Swimlane Management
+    - Level 3 Capability: Add/rename/reorder/hide; drag between swimlanes
+      - Evidence: SwimlaneModel.php
+  - Level 2 Capability: Time Tracking
+    - Level 3 Capability: Task estimates/spent; subtask detailed timers and rounding
+      - Evidence: TaskAnalyticModel.php, SubtaskTimeTrackingModel.php
+
+- Level 1 Capability: Workflow Automation
+  - Level 2 Capability: Automatic Actions Configuration
+    - Level 3 Capability: Per-project rule engine (event, action, params)
+      - Evidence: app/Action/* (e.g., TaskCreation.php, CommentCreation.php), ActionModel.php, ActionParameterModel.php
+  - Level 2 Capability: Predefined Automated Actions
+    - Level 3 Capability: Assign/self-assign; change color/category; close/open; move/duplicate; start date; react to links/categories/assignees
+      - Evidence: app/Action/* classes
+
+- Level 1 Capability: Search and Information Retrieval
+  - Level 2 Capability: Advanced Search
+    - Level 3 Capability: Query tasks/comments/subtasks/links with rich attributes and date operators
+      - Evidence: TaskFinderModel.php, Filter/*, Formatter/*
+- Level 2 Capability: Activity Strearch
+    - Level 3 Capability: Project/user activity filters
+      - Evidence: project/activity templates, ProjectActivityModel.php
+
+- Level 1 Capability: Scheduling and Publishing
+  - Level 2 Capability: iCalendar (ICS) feeds (project/user)
+    - Level 3 Capability: Token-protected, read-only calendar endpoints
+      - Evidence: iCal formatting & routes under Formatter/Export, project/user share templates
+  - Level 2 Capability: RSS/Atom Feeds
+    - Level 3 Capability: Project and user activity streams
+      - Evidence: FeedController.php, user_view templates (share, show)
+
+- Level 1 Capability: Collaboration and Notification
+  - Level 2 Capability: Notifications
+    - Level 3 Capability: Email, Web, and Web!hook channels; user subscriptions & unread list
+      - Evidence: NotificationModel.php, UserNotificationModel.php, UserUnreadNotificationModel.php, NotificationTypeModel.php, WebhookNotification.php; libs/swiftmailer/
+  - Level 2 Capability: Users and Groups
+    - Level 3 Capability: Roles (Admin/Manager/User), Project Roles (Manager/Member/Viewer) and custom restrictions
+      - Evidence: UserModel.php, ProjectRoleModel.php, ProjectRoleRestrictionModel.php
+    - Level 3 Capability: Authentication providers: Local, LDAP, Reverse Proxy, OAuth2
+      - Evidence: app/Auth/* (LDAP/ReverseProxy/OAuth2)
+    - Level 3 Capability: Two-Factor Authentication (TOTP)
+      - Evidence: UserModel.php, app/Template/user/*, config.default.php
+
+- Level 1 Capability: Settings and Configuration
+  - Level 2 Capability: Application Settings
+    - Level 3 Capability: App URL (emails), language, timezone, date formats, custom CSS
+      - Evidence: config.default.php, SettingModel.php
+  - Level 2 Capability: Project Defaults and Controls
+    - Level 3 Capability: Default columns/categories; enforce one subtask in progress; auto subtask timers; include closed tasks in CFD
+      - Evidence: ConfigModel.php, ProjectDailyColumnStatsModel.php
+  - Level 2 Capability: Board Settings
+    - Level 3 Capability: Recent-change highlight window; public/private refresh intervals
+      - Evidence: constants.php, SettingModel.php, templates
+  - Level 2 Capability: Calendar Settings
+    - Level 3 Capability: Creation-based vs start-date calendars; options for estimates/forecasts
+      - Evidence: Formatter/*, templates
+  - Level 2 Capability: Link Settings
+    - Level 3 Capability: Relationship labels and opposites (bidirectional defaults)
+      - Evidence: LinkModel.php
+
+- Level 1 Capability: Analytics and Reporting
+  - Level 2 Capability: Project Analytics
+    - Level 3 Capability: User/task distribution; CFD; burndown; avg time per column; lead/cycle time
+      - Evidence: app/Analytic/*); ProjectDailyStatsModel.php; ProjectDailyColumnStatsModel.php; assets/js/components/chart-*.js; Template/analytic/*
+    - Level 3 Capability: Metrics job for background computation
+      - Evidence: ProjectMetricJob.php
+  - Level 2 Capabity: Task Analytics
+    - Level 3 Capability: Lead vs cycle time per task; time-in-column per task
+      - Evidence: TaskAnalyticModel.php, templates
+
+- Level 1 Capability: Productivity Aids
+  - Level 2 Capability: Keyboard Shortcuts
+    - Level 3 Capability: View switches, board controls, task quick actions, app commands
+      - Evidence: assets/js/* keyboard, templates/help
+  - Level 2 Capabity: Markdown Support
+    - Level 3 Capability: Formatting, code, headings, tables
+      - Evidence: Formatter/Markdown, templates
+
+- Level 1 Capability: Platform & Operations (Code-backed)
+  - Level 2 Capability: API & Integrations
+    - Level 3 Capability: JSON-RPC API endpoint
+      - Evidence: jsonrpc.php
+    - Level 3 Capability: Webhook notifications
+      - Evidence: app/Notification/WebhookNotification.php
+    - Level 3 Capability: External link providers for tasks
+      - Evidence: TaskExternalLinkModel.php, app/ExternalLink/*
+  - Level 2 Capability: Import/Export
+    - Level 3 Capability: Export controller, CSV/ICS, importers
+      - Evidence: ExportController.php; app/Import/*; app/Export/*
+  - Level 2 Capability: Data Storage
+    - Level 3 Capability: SQLite/MySQL/PostgreSQL/MSSQL ubackends
+      - Evidence: app/Schema/{Sqlite,Mysql,Postgres,Mssql}.php; app/Schema/Sql/*.sql
+  - Level 2 Capability: Operations/Runtime
+    - Level 3 Capability: CLI commands; background jobs; healthcheck endpoint
+      - Evidence: cli; app/Job/*; healthceck.php
+  - Level 2 Capability: Internationalization & Theming
+    - Level 3 Capability: Multi-language translations; theme support
+      - Evidence: app/Locale/*; ThemeModel.php
+  - Level 2 Capability: Plugin Architecture
+    - Level 3 Capability: Plugins folder; hooks, events, providers
+      - Evidence: plugins/; app/ServiceProvider/*; Event/EventBuilder
